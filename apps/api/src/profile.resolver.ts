@@ -1,4 +1,13 @@
-import { Args, Field, InputType, Int, Mutation, ObjectType, Query, Resolver } from '@nestjs/graphql';
+import {
+  Args,
+  Field,
+  InputType,
+  Int,
+  Mutation,
+  ObjectType,
+  Query,
+  Resolver,
+} from '@nestjs/graphql';
 import { BadRequestException } from '@nestjs/common';
 import { IsEmail, IsNotEmpty, MaxLength } from 'class-validator';
 import { PrismaService } from './prisma.service';

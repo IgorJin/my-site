@@ -8,4 +8,3 @@
 - Never commit secrets. Update `.env.example` when adding configuration.
 - Before finishing a task, run the relevant typecheck, tests, and build.
 - Summarize changed files, assumptions, and commands used to verify the result.
-

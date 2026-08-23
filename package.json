@@ -1,12 +1,17 @@
 {
   "name": "digital-card",
   "private": true,
-  "workspaces": ["apps/*"],
+  "workspaces": [
+    "apps/*"
+  ],
   "scripts": {
     "dev:web": "npm run dev --workspace @digital-card/web",
     "dev:api": "npm run start:dev --workspace @digital-card/api",
     "build": "npm run build --workspaces --if-present",
     "test": "npm run test --workspaces --if-present",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint .",
     "db:generate": "npm run prisma:generate --workspace @digital-card/api",
     "db:migrate": "npm run prisma:migrate --workspace @digital-card/api",
     "db:deploy": "npm run prisma:deploy --workspace @digital-card/api"
@@ -15,7 +20,23 @@
     "@apollo/server": "5.5.1",
     "@as-integrations/express5": "1.1.2"
   },
+  "devDependencies": {
+    "@eslint/js": "^9.35.0",
+    "eslint": "^9.35.0",
+    "eslint-plugin-react-hooks": "^6.1.1",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "prettier": "^3.6.2",
+    "typescript-eslint": "^8.42.0"
+  },
   "engines": {
     "node": ">=22"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.9.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-refresh": "^0.5.4",
+    "prettier": "^3.9.6",
+    "typescript-eslint": "^8.67.0"
   }
 }

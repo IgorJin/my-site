@@ -35,11 +35,13 @@ describe('ProfileResolver', () => {
   it('normalizes and saves a contact request', async () => {
     prisma.contactRequest.create.mockResolvedValue({ id: 42 });
 
-    await expect(resolver.sendContactRequest({
-      name: '  Test User ',
-      email: ' TEST@EXAMPLE.COM ',
-      message: '  Hello  ',
-    })).resolves.toEqual({ id: 42, accepted: true });
+    await expect(
+      resolver.sendContactRequest({
+        name: '  Test User ',
+        email: ' TEST@EXAMPLE.COM ',
+        message: '  Hello  ',
+      }),
+    ).resolves.toEqual({ id: 42, accepted: true });
 
     expect(prisma.contactRequest.create).toHaveBeenCalledWith({
       data: { name: 'Test User', email: 'test@example.com', message: 'Hello' },
