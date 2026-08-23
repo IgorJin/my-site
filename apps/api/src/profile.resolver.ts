@@ -13,6 +13,9 @@ class Profile {
 
   @Field()
   summary!: string;
+
+  @Field(() => String, { nullable: true })
+  location!: string | null;
 }
 
 @ObjectType()
