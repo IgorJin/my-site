@@ -315,21 +315,16 @@ h1 {
 }
 .project-grid {
   display: grid;
-  grid-template-columns: 1.35fr 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
 }
 .project-card {
   display: flex;
-  min-height: 250px;
+  min-height: 300px;
   flex-direction: column;
   padding: 25px;
   border: 1px solid var(--line);
   background: var(--surface);
-}
-.project-featured {
-  grid-row: span 2;
-  min-height: 516px;
-  background: var(--surface-2);
 }
 .project-top {
   display: flex;
@@ -470,10 +465,6 @@ h1 {
   }
   .project-grid {
     grid-template-columns: 1fr;
-  }
-  .project-featured {
-    grid-row: auto;
-    min-height: 300px;
   }
   .ai-note > p {
     margin: 0;

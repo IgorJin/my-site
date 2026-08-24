@@ -210,7 +210,7 @@ export default function HomePage() {
                   : undefined;
             return (
               <article
-                className={`project-card ${index === 0 ? 'project-featured' : ''}`}
+                className="project-card"
                 key={project.id}
               >
                 <div className="project-top">
