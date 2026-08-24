@@ -62,6 +62,8 @@ const roles = [
       'Разработал dashboard для агрегации статистики из распределённых баз данных и внутренних сервисов.',
       'Реализовал кэширование больших объёмов статистики через отдельную базу курсоров.',
       'Оптимизировал тяжёлые запросы: средняя загрузка крупных выборок стала меньше 2 секунд, ускорение — около 80–85%; устранил timeout 500-ошибки.',
+      'Сократил цикл изменения правил с разработки, тестирования и релиза до настройки через административный интерфейс, сэкономив десятки человеко-часов на итерациях.',
+      'Использовал Claude Code для ускорения разработки новых разделов, генерации кода и рефакторинга с ручным контролем архитектуры и качества.',
     ],
   },
   {
@@ -93,6 +95,12 @@ const contacts = [
   { label: 'Telegram', value: '@jeenje', href: 'https://t.me/jeenje' },
   { label: 'GitHub', value: 'github.com/IgorJin', href: 'https://github.com/IgorJin' },
   { label: 'Телефон', value: '+7 981 914-77-68', href: 'tel:+79819147768' },
+];
+const metrics = [
+  ['6+', 'лет коммерческой разработки'],
+  ['<2 с', 'средняя загрузка тяжёлой статистики'],
+  ['80–85%', 'ускорение крупных выборок'],
+  ['0', '500-ошибок после оптимизации'],
 ];
 
 function SectionHeading({ number, title, note }: { number: string; title: string; note: string }) {
@@ -164,6 +172,14 @@ export default function HomePage() {
           </div>
         </aside>
       </header>
+      <section className="cv-metrics" aria-label="Ключевые показатели">
+        {metrics.map(([value, label]) => (
+          <div className="metric-card" key={value}>
+            <strong>{value}</strong>
+            <span>{label}</span>
+          </div>
+        ))}
+      </section>
       <section className="section" id="stack">
         <SectionHeading number="01" title="Стек" note="то, чем работаю каждый день" />
         <div className="stack-list">
@@ -231,12 +247,19 @@ export default function HomePage() {
       </section>
       <section className="section ai-note" id="ai">
         <SectionHeading number="04" title="AI / LLM" note="инженерный подход" />
-        <p>
-          Использую Claude Code, Codex, Cursor и локальные модели как часть production-процесса:
-          декомпозиция, генерация, рефакторинг, тесты и ручная проверка результата. Практический
-          фокус — RAG, embeddings, vector search, tool use и интеграция LLM в пользовательские
-          сценарии.
-        </p>
+        <ul className="cv-list">
+          <li>Практический опыт с OpenAI API, Anthropic API и локальными LLM через LM Studio.</li>
+          <li>RAG, embeddings, vector databases и поиск по локальной кодовой базе.</li>
+          <li>Эксперименты с Qwen/Gemma для анализа кода, AI-assisted разработки и локальных workflow.</li>
+          <li>Claude Code, Codex и Cursor для декомпозиции, генерации, рефакторинга и ревью.</li>
+        </ul>
+      </section>
+      <section className="section education-section" id="education">
+        <SectionHeading number="05" title="Образование" note="техническая база" />
+        <div className="education-card">
+          <strong>СПбГЭТУ «ЛЭТИ»</strong>
+          <span>2013 — 2019 · Магистр радиотехники и телекоммуникаций</span>
+        </div>
       </section>
       <footer className="contact-footer" id="contact">
         <div>

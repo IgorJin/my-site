@@ -3,8 +3,8 @@ import type { ReactNode } from 'react';
 import './styles.css';
 
 export const metadata: Metadata = {
-  title: 'Игорь Зубенко — Senior Fullstack Engineer',
-  description: 'Цифровая визитка senior fullstack/backend-инженера.',
+  title: 'Игорь Зубенко — CV | Senior Fullstack Engineer',
+  description: 'CV Игоря Зубенко — Senior Fullstack / Backend + AI Engineer.',
 };
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
