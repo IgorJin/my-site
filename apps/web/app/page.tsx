@@ -138,8 +138,8 @@ export default function HomePage() {
               </svg>
               Telegram
             </a>
-            <a className="button button-ghost" href="#experience">
-              Опыт <span>↓</span>
+            <a className="button button-ghost" href="/resume-igor-zubenko.pdf" download>
+              Скачать CV <span>↓</span>
             </a>
           </div>
         </div>
