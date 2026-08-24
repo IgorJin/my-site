@@ -8,6 +8,7 @@ export default tseslint.config(
   globalIgnores([
     '**/node_modules/**',
     '**/.next/**',
+    '**/out/**',
     '**/dist/**',
     '**/coverage/**',
     '**/.turbo/**',

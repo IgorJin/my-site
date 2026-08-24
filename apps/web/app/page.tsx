@@ -29,6 +29,13 @@ const projects: Project[] = [
       'Локальный индексатор репозиториев: chunking, embeddings и vector search для поиска по коду с использованием Qwen/Gemma.',
     result: 'github.com/IgorJin/Local-repository-RAG',
   },
+  {
+    id: 4,
+    title: 'Кеширование статистики через курсоры',
+    description:
+      'Спроектировал отдельную базу курсоров для кеширования больших объёмов статистики из распределённых источников и повторного использования результатов тяжёлых выборок.',
+    result: 'Выборки стали быстрее · устранены timeout 500-ошибки',
+  },
 ];
 const stack = [
   ['Frontend', 'React · Vue 3 · Next.js · TypeScript · сложные административные интерфейсы'],
@@ -46,7 +53,6 @@ const roles = [
     title: 'Senior / Fullstack Developer',
     context:
       'Высоконагруженная B2B-платформа, распределённая архитектура и внутренние административные системы.',
-    current: true,
     stack:
       'TypeScript · Node.js · NestJS · Vue 3 · React · PostgreSQL · MySQL · Redis · Kafka · Docker · Kubernetes · Prolog',
     highlights: [
@@ -63,7 +69,6 @@ const roles = [
     company: 'Fora Soft',
     title: 'Fullstack Developer',
     context: 'Аутсорс-разработка высоконагруженного WebRTC-приложения для браузерных видеозвонков.',
-    current: false,
     stack: 'JavaScript · TypeScript · React/Vue · Node.js · WebRTC · REST API',
     highlights: [
       'Разрабатывал frontend и backend для real-time коммуникаций и браузерных видеозвонков.',
@@ -76,7 +81,6 @@ const roles = [
     company: 'UPIM',
     title: 'Frontend / Fullstack Developer',
     context: 'Аутстафф-разработка e-commerce-продукта.',
-    current: false,
     stack: 'JavaScript · TypeScript · React/Vue · Node.js · MySQL · REST API',
     highlights: [
       'Разрабатывал web-интерфейсы магазина и e-commerce-сценарии.',
@@ -178,7 +182,6 @@ export default function HomePage() {
             <article className="experience-item" key={role.company}>
               <div className="experience-date">
                 {role.date}
-                {role.current && <span className="current-chip">сейчас</span>}
               </div>
               <div className="experience-content">
                 <h3>{role.company}</h3>

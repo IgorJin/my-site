@@ -278,15 +278,6 @@ h1 {
 .experience-date {
   line-height: 1.6;
 }
-.current-chip {
-  display: block;
-  width: max-content;
-  margin-top: 10px;
-  padding: 3px 7px;
-  border: 1px solid var(--accent);
-  color: var(--accent);
-  font-size: 10px;
-}
 .experience-content h3 {
   margin: 0 0 3px;
   font:
@@ -476,10 +467,6 @@ h1 {
     display: flex;
     gap: 12px;
     align-items: center;
-  }
-  .current-chip {
-    display: inline-block;
-    margin: 0;
   }
   .project-grid {
     grid-template-columns: 1fr;
