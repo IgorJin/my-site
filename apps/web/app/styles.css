@@ -173,33 +173,6 @@ h1 {
   border: 1px solid var(--line);
   background: var(--surface);
 }
-.cv-metrics {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
-  padding: 28px 0 0;
-}
-.metric-card {
-  display: grid;
-  min-height: 104px;
-  align-content: center;
-  gap: 7px;
-  padding: 16px;
-  border: 1px solid var(--line);
-  background: var(--surface);
-  text-align: center;
-}
-.metric-card strong {
-  color: var(--accent);
-  font:
-    600 28px 'Fira Code',
-    monospace;
-}
-.metric-card span {
-  color: var(--muted);
-  font-size: 12px;
-  line-height: 1.35;
-}
 .avatar {
   padding: 26px 26px 23px;
   border-bottom: 1px solid var(--line);
@@ -386,32 +359,6 @@ h1 {
   font-size: 16px;
   line-height: 1.7;
 }
-.cv-list {
-  max-width: 800px;
-  margin: -5px 0 0 70px;
-  padding-left: 20px;
-  color: var(--muted);
-  font-size: 16px;
-  line-height: 1.7;
-}
-.cv-list li {
-  margin-bottom: 7px;
-}
-.education-card {
-  display: grid;
-  gap: 8px;
-  padding: 22px 24px;
-  border: 1px solid var(--line);
-  background: var(--surface);
-}
-.education-card strong {
-  font:
-    600 20px 'Fira Code',
-    monospace;
-}
-.education-card span {
-  color: var(--muted);
-}
 .contact-footer {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -494,10 +441,6 @@ h1 {
   .facts-card {
     max-width: 440px;
   }
-  .cv-metrics {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    padding-top: 18px;
-  }
   .section {
     padding: 55px 0;
   }
@@ -524,9 +467,6 @@ h1 {
     grid-template-columns: 1fr;
   }
   .ai-note > p {
-    margin: 0;
-  }
-  .cv-list {
     margin: 0;
   }
   .contact-footer {
