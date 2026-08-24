@@ -139,7 +139,7 @@ export default function HomePage() {
               Telegram
             </a>
             <a className="button button-ghost" href="/resume-igor-zubenko.pdf" download>
-              Скачать CV <span>↓</span>
+              Скачать CV
             </a>
           </div>
         </div>
