@@ -1,17 +1,9 @@
 # Architecture
 
 ```text
-Browser -> Next.js -> NestJS GraphQL API -> Prisma -> PostgreSQL
+Browser -> статический Next.js export -> CDN / Static Site hosting
 ```
 
-На первом этапе приложения развиваются в одном репозитории и запускаются отдельно. PostgreSQL поднимается через Docker Compose. Prisma подключается к NestJS через глобальный `PrismaModule`, а контракт между frontend и backend — GraphQL schema, генерируемая NestJS из TypeScript-моделей.
+Контент визитки хранится в TypeScript рядом со страницей. Next.js собирает HTML, CSS и JavaScript в `apps/web/out`, поэтому в runtime не нужны Node.js-сервер, API, база данных, Docker или переменные окружения.
 
-Профиль уже читается из PostgreSQL через `PrismaService`; seed создаёт демонстрационные данные для визитки.
-
-Для локального и демонстрационного запуска Compose собирает два multi-stage image: API и web. API ждёт healthy PostgreSQL, применяет миграции и публикует `/health`; web собирается Next.js в standalone-режиме.
-
-## Следующие вертикальные срезы
-
-1. Profile: модель, seed, query, hero-блок.
-2. Projects: кейсы, query, карточки результатов.
-3. Contacts: mutation, валидация, сохранение обращения, rate limit.
+Для публикации достаточно выполнить `npm run build` и указать `apps/web/out` как output directory на хостинге статических сайтов.

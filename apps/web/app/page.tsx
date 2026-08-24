@@ -1,18 +1,13 @@
-'use client';
-
-import { useEffect, useState } from 'react';
-
-type Profile = { name: string; headline: string; summary: string; location: string };
 type Project = { id: number; title: string; description: string; result: string };
 
-const fallbackProfile: Profile = {
+const profile = {
   name: 'Игорь Зубенко',
   headline: 'Senior Fullstack Developer / Backend + AI Engineer',
   summary:
     '6+ лет коммерческого опыта в разработке высоконагруженных web-приложений, административных систем и распределённых сервисов. Основной стек — TypeScript, Node.js, React, Vue, NestJS, PostgreSQL/MySQL, Redis, Kafka, Docker и Kubernetes. Отдельный фокус — AI/LLM-инструменты, RAG, embeddings, vector search и локальные модели Qwen/Gemma.',
   location: 'Санкт-Петербург · Москва · удалённо',
 };
-const fallbackProjects: Project[] = [
+const projects: Project[] = [
   {
     id: 1,
     title: 'Конструктор правил риск-фильтрации',
@@ -96,20 +91,6 @@ const contacts = [
   { label: 'Телефон', value: '+7 981 914-77-68', href: 'tel:+79819147768' },
 ];
 
-async function loadCard(): Promise<{ profile: Profile; projects: Project[] }> {
-  const response = await fetch(process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:4000/graphql', {
-    method: 'POST',
-    headers: { 'content-type': 'application/json' },
-    body: JSON.stringify({
-      query:
-        '{ profile { name headline summary location } projects { id title description result } }',
-    }),
-  });
-  if (!response.ok) throw new Error('GraphQL request failed');
-  const payload = (await response.json()) as { data?: { profile: Profile; projects: Project[] } };
-  if (!payload.data) throw new Error('GraphQL response has no data');
-  return payload.data;
-}
 function SectionHeading({ number, title, note }: { number: string; title: string; note: string }) {
   return (
     <div className="section-heading">
@@ -121,16 +102,6 @@ function SectionHeading({ number, title, note }: { number: string; title: string
 }
 
 export default function HomePage() {
-  const [profile, setProfile] = useState<Profile>(fallbackProfile);
-  const [projects, setProjects] = useState<Project[]>(fallbackProjects);
-  useEffect(() => {
-    void loadCard()
-      .then((card) => {
-        setProfile(card.profile);
-        setProjects(card.projects);
-      })
-      .catch(() => undefined);
-  }, []);
   return (
     <main className="site-shell">
       <header className="profile-header">

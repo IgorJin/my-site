@@ -27,12 +27,6 @@ export default tseslint.config(
     },
   },
   {
-    files: ['apps/api/**/*.ts'],
-    rules: {
-      '@typescript-eslint/no-explicit-any': 'off',
-    },
-  },
-  {
     files: ['**/*.cjs'],
     languageOptions: {
       globals: {
